@@ -2,6 +2,15 @@ Rails.application.routes.draw do
 
   get "/about" => "home#about"
 
+  # get "/projects/new"        => "projects#new"    , as: :new_project
+  # post "/projects"           => "projects#create" , as: :projects
+  # get "/projects/:id"        => "projects#show"   , as: :project
+  # get "/projects"            => "projects#index"
+  # get "/projects/:id/edit"   => "projects#edit"   , as: :edit_project
+  # patch "projects/:id"       => "projects#update"
+  # delete "/projects/:id"     => "projects#destroy"
+  resources :projects
+
   root "home#index"
 
 
