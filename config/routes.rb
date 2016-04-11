@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   # delete "/projects/:id"     => "projects#destroy"
   resources :projects
 
+  resources :tasks
+
   root "home#index"
 
 
