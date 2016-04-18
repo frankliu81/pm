@@ -7,11 +7,21 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 10.times do
-  p = FactoryGirl.create(:project)
+  proj = FactoryGirl.create(:project)
 
   3.times do
     t = FactoryGirl.create(:task)
-    p.tasks.push(t)
+    proj.tasks.push(t)
+  end
+
+  2.times do
+    d = FactoryGirl.create(:discussion)
+    proj.discussions.push(d)
+
+    3.times do
+      c = FactoryGirl.create(:comment)
+      d.comments.push(c)
+    end
   end
 
 end

@@ -1,15 +1,14 @@
 <h1><%= @project.title %></h1>
 <p><%= @project.description %></p>
 <p><%= @project.due_date %></p>
+<%= link_to "Discussions", project_discussions_path(@project) %>
 <%= link_to "Edit", edit_project_path(@project) %>
 <%= link_to "Delete", project_path(@project), method: :delete,
                                   data: {confirm: "Are you sure?"}%>
 
 <hr>
 
-
 <%= @task.errors.full_messages.join(", ") %>
-
 
 <hr>
 
@@ -90,7 +89,7 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :due_date, "Body", class: "control-label" %>
+    <%= f.label :due_date, "Due Date", class: "control-label" %>
     <%= f.text_field :due_date, class: "form-control" %>
   </div>
   <div class="form-group">

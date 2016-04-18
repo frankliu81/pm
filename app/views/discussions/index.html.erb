@@ -1,0 +1,6 @@
+<h1>All Discussions for Project <%= @project.title %></h1>
+<% @discussions.each do |discussion| %>
+  <div>
+    <%= link_to discussion.title, project_discussion_path(@project, discussion) %>
+  </div>
+<% end %>

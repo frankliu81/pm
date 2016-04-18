@@ -1,0 +1,13 @@
+// Place all the styles related to the discussions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.discussion-comment {
+  height: 200px;
+}
+
+.discussion-comment__textarea {
+  height: 80% !important;
+}

@@ -10,8 +10,13 @@ Rails.application.routes.draw do
   # delete "/projects/:id"     => "projects#destroy"
   resources :projects do
     resources :tasks
+    resources :discussions
   end
 
+  resources :discussions do
+    resources :comments
+  end
+  
   post "/tasks/status_change/:id" => "tasks#status_change", as: :status_change_task
 
   get "/about" => "home#about"
