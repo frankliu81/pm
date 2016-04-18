@@ -4,3 +4,99 @@
 <%= link_to "Edit", edit_project_path(@project) %>
 <%= link_to "Delete", project_path(@project), method: :delete,
                                   data: {confirm: "Are you sure?"}%>
+
+<hr>
+
+
+<%= @task.errors.full_messages.join(", ") %>
+
+
+<hr>
+
+<div class="row">
+
+  <div class="col-xs-12">
+    <div class="support-header">
+      <h1>Tasks</h1>
+
+      <form action="/tasks/search" method="GET" class="search-group">
+        <input type="text" name="search" class="txt-search" value="">
+        <input type="submit" value="Search" class="btn btn-primary btn-search">
+      </form>
+    </div>
+
+  </div>
+
+</div>
+
+<%#= paginate(@tasks) %>
+<div class="pagination_info">
+  <%#= page_entries_info @tasks %>
+</div>
+
+<table class="table table-medium">
+  <thead>
+    <tr>
+      <th class="col-md-2">Title</th>
+      <th class="col-md-2">Body</th>
+      <th class="col-md-2">Due Date</th>
+      <th class="col-md-6">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <% @project.tasks.each do |task| %>
+
+    <tr>
+       <td><%= task.title %></td>
+       <td class="message--shorten"><%= task.body %></td>
+       <td><%= task.due_date %></td>
+       <td>
+          <div class="btn-group btn-group--edit-delete-status">
+            <%= button_to "Edit", edit_project_task_path(@project,task), method: :get, class: 'btn btn-primary btn-edit'  %>
+            <%= button_to "Delete",project_task_path(@project,task), method: :delete,
+                                                     data: {confirm: "Are you sure?"},
+                                                     class: 'btn btn-secondary btn-primary'%>
+            <% btn_status = (task.status == "Done")? "btn-status-done" : "btn-status-not-done" %>
+            <%= button_to task.status, status_change_task_path(task), method: :post,
+                                                    class: "btn btn-primary #{btn_status}"%>
+          </div>
+       </td>
+    </tr>
+
+    <% end %>
+
+ </tbody>
+
+
+</table>
+
+
+<%#= paginate(@tasks) %>
+
+
+
+<%= form_for @task, url: project_tasks_path(@project), html: {class: "form"} do |f| %>
+
+  <div class="form-group">
+    <%= f.label :title, "Title", class: "control-label" %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="form-group project-task">
+    <%= f.label :body, "Body", class: "control-label" %>
+    <%= f.text_area :body, class: "form-control project-task__textarea" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :due_date, "Body", class: "control-label" %>
+    <%= f.text_field :due_date, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.submit "Create Task", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+
+</div>

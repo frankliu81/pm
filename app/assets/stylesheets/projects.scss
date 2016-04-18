@@ -1,3 +1,122 @@
 // Place all the styles related to the projects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.container-project{
+  width: 95%;
+  font-size: 0.8em;
+}
+
+h1 {
+  margin-bottom: 0px;
+}
+.support-header {
+  display: flex;
+  align-items: flex-end;
+  /*align-items: center;*/
+  justify-content: space-between;
+}
+
+.support-header form {
+  display: flex;
+
+}
+
+.btn-search {
+  display: inline-block;
+  float: right;
+  /* prevent btn from being resized in mobile mode*/
+  max-width: 80px;
+}
+
+.txt-search {
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-bottom: 0px;
+  min-width: 150px;
+  height: 20px;
+  display: inline-block;
+  float: right;
+}
+
+.message--shorten{
+  max-width:200px; /* Customise it accordingly */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: top;
+}
+
+.request-heading, .request-item {
+  width: 100%;
+  border: solid black 1px;
+}
+
+.btn{
+  padding-top: 0px;
+  height: 35px;
+}
+
+.btn-secondary {
+  border: solid black 1px;
+  color: white
+}
+
+.btn-edit {}
+.btn-delete {}
+.btn-status-done {}
+.btn-status-not-done {
+  background-color: DarkBlue;
+}
+
+
+.pagination_info
+{
+  text-align: left;
+}
+
+.table-medium{
+  width: 80%;
+}
+
+.btn-group form{
+  display: inline;
+}
+
+.btn-group--edit-delete-status {
+  /*min-width prevents stacking*/
+  min-width: 230px;
+}
+
+.project-task {
+  height: 200px;
+}
+
+.project-task__textarea {
+  height: 80% !important;
+}
+
+
+
+/* mobile resolution */
+
+@media all and (max-width: 650px) and (min-width: 200px) {
+    body{
+        font-size: 11px;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    .support-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .support-header form {
+      flex-direction: row-reverse;
+    }
+
+}

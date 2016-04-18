@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  get "/about" => "home#about"
 
   # get "/projects/new"        => "projects#new"    , as: :new_project
   # post "/projects"           => "projects#create" , as: :projects
@@ -9,9 +8,13 @@ Rails.application.routes.draw do
   # get "/projects/:id/edit"   => "projects#edit"   , as: :edit_project
   # patch "projects/:id"       => "projects#update"
   # delete "/projects/:id"     => "projects#destroy"
-  resources :projects
+  resources :projects do
+    resources :tasks
+  end
 
-  resources :tasks
+  post "/tasks/status_change/:id" => "tasks#status_change", as: :status_change_task
+
+  get "/about" => "home#about"
 
   root "home#index"
 

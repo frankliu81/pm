@@ -2,7 +2,7 @@
 
 <%= @task.errors.full_messages.join(", ") %>
 
-<%= form_for @task do |f| %>
+<%= form_for @task, url: project_task_path(@project, @task), method: :patch do |f| %>
 
   <div>
     <%= f.label :title %>
@@ -10,10 +10,10 @@
   </div>
 
   <div>
-    <%= f.label :project_id %>
-    <%= f.text_field :project_id %>
+    <%= f.label :body %>
+    <%= f.text_area :body %>
   </div>
-  
+
   <div>
     <%= f.label :due_date %>
     <%= f.datetime_field :due_date %>
