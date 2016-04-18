@@ -5,3 +5,13 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+10.times do
+  p = FactoryGirl.create(:project)
+
+  3.times do
+    t = FactoryGirl.create(:task)
+    p.tasks.push(t)
+  end
+
+end

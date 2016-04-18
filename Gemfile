@@ -44,6 +44,10 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem "faker",  github: "stympy/faker"
   gem 'cowsay'
+  gem 'pry'
+  gem 'pry-byebug'
+  gem 'pry-doc'
+  gem 'pry-rails'
   gem 'interactive_editor'
   gem 'awesome_print'
   gem 'hirb'
