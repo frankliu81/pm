@@ -1,4 +1,4 @@
-<h1><%= @discussion.project.title %> Project's Discussion</h1>
+<h1> Project Discussion: <%= @discussion.project.title %></h1>
 <h2><%= @discussion.title %></h1>
 <p><%= @discussion.body %></p>
 <%= link_to "Edit", edit_project_discussion_path(@discussion.project, @discussion) %>
