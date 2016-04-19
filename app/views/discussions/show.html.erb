@@ -19,6 +19,7 @@
 <%# partil review is defined in review/_review.html.erb %>
 <%= render @discussion.comments.order('created_at DESC') %>
 
+<h2>New Comment</h2>
 <%= form_for @comment, url: discussion_comments_path(@discussion), html: {class: "form"} do |f| %>
 
   <div class="form-group discussion-comment">

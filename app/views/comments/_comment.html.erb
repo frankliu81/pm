@@ -1,5 +1,7 @@
 <%= comment.body %>
-<%= link_to "delete", discussion_comment_path(@discussion, comment),
+<%= link_to "Edit", edit_discussion_comment_path(@discussion, comment) %>
+|
+<%= link_to "Delete", discussion_comment_path(@discussion, comment),
                 data: {confirm: "Are you sure?"},
                 method: :delete %>
 <hr>

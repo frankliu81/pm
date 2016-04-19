@@ -71,6 +71,10 @@ class DiscussionsController < ApplicationController
 
 private
 
+  def discussion_params
+    discussion_params = params.require(:discussion).permit([:title, :body])
+  end
+
   # def find_project
   #   @project = Project.find_by params[:project_id]
   #   # redirect_to projects_path, alert: "No project found for this discussion" if @project == nil
@@ -81,9 +85,5 @@ private
   #   @discussion = Discussion.find params[:id]
   # end
 
-
-  def discussion_params
-    discussion_params = params.require(:discussion).permit([:title, :body])
-  end
 
 end

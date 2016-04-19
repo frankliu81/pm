@@ -40,6 +40,8 @@
   |
   <%= link_to "All Projects", projects_path %>
   <hr>
+  <%= flash[:notice] || flash[:alert] %>
+  <hr>
 <%= yield %>
 
 </body>

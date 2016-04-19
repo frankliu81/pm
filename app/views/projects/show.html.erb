@@ -1,11 +1,12 @@
-<h1><%= @project.title %></h1>
+<h1>Project: <%= @project.title %></h1>
 <p><%= @project.description %></p>
 <p><%= @project.due_date %></p>
-<%= link_to "Discussions", project_discussions_path(@project) %>
 <%= link_to "Edit", edit_project_path(@project) %>
+|
 <%= link_to "Delete", project_path(@project), method: :delete,
                                   data: {confirm: "Are you sure?"}%>
-
+|
+<%= link_to "Discussions", project_discussions_path(@project) %>
 <hr>
 <%# this is for displaying the @task validation error for creating tasks  %>
 <%= @task.errors.full_messages.join(", ") %>
@@ -45,7 +46,7 @@
 
   <tbody>
 
-    <% @project.tasks.each do |task| %>
+    <% @project.tasks.order("due_date DESC").each do |task| %>
 
     <tr>
        <td><%= task.title %></td>
