@@ -7,7 +7,7 @@
                                   data: {confirm: "Are you sure?"}%>
 
 <hr>
-
+<%# this is for displaying the @task validation error for creating tasks  %>
 <%= @task.errors.full_messages.join(", ") %>
 
 <hr>
@@ -73,9 +73,7 @@
 
 
 <%#= paginate(@tasks) %>
-
-
-
+<h2> New Task </h2>
 <%= form_for @task, url: project_tasks_path(@project), html: {class: "form"} do |f| %>
 
   <div class="form-group">

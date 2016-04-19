@@ -2,9 +2,13 @@
 <h2><%= @discussion.title %></h1>
 <p><%= @discussion.body %></p>
 <%= link_to "Edit", edit_project_discussion_path(@discussion.project, @discussion) %>
-<%= link_to "Delete", project_path(@discussion.project), method: :delete,
+|
+<%= link_to "Delete", project_discussion_path(@discussion.project, @discussion), method: :delete,
                                   data: {confirm: "Are you sure?"}%>
-
+|
+<%= link_to "Back to Discussions", project_discussions_path(@discussion.project) %>
+|
+<%= link_to "Back to Project", project_path(@discussion.project) %>
 
 
 <hr>

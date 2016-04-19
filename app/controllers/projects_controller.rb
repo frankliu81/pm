@@ -20,6 +20,8 @@ class ProjectsController < ApplicationController
 
   def show
     @task = Task.new
+    puts "===================== inside project controller show"
+
   end
 
   def index

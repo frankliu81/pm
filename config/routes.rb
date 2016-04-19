@@ -14,9 +14,10 @@ Rails.application.routes.draw do
   end
 
   resources :discussions do
+  #resources :discussions, only: [] do
     resources :comments
   end
-  
+
   post "/tasks/status_change/:id" => "tasks#status_change", as: :status_change_task
 
   get "/about" => "home#about"
