@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   has_many :liked_ideas, through: :likes, source: :idea
 
   has_many :memberships, dependent: :destroy
-  has_many :joined_ideas, through: :memberships, source: :idea
+  has_many :joined_projects, through: :memberships, source: :project
 
   validates :first_name, presence: true
   validates :last_name, presence: true

@@ -1,6 +1,6 @@
 <h1>All Projects</h1>
 <% @projects.each do |project| %>
   <div>
-    <%= link_to "project #{project.id}: " + project.title, project_path(project) %>
+    <%= link_to "Project #{project.id}: " + project.title + " --- Joined (#{project.memberships.count})", project_path(project) %>
   </div>
 <% end %>

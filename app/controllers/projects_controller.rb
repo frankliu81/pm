@@ -20,7 +20,7 @@ class ProjectsController < ApplicationController
 
   def show
     @task = Task.new
-    puts "===================== inside project controller show"
+    #puts "===================== inside project controller show"
 
   end
 
@@ -52,5 +52,10 @@ class ProjectsController < ApplicationController
   def project_params
     project_params = params.require(:project).permit([:title, :description, :due_date])
   end
+
+  def membership_for_project
+    @membership ||= @project.membership_for(current_user)
+  end
+  helper_method :membership_for_project
 
 end

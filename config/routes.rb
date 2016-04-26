@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :projects do
     resources :tasks
     resources :discussions
+    resources :memberships, only: [:create, :destroy]
   end
 
   #resources :discussions do

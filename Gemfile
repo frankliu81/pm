@@ -29,6 +29,11 @@ gem 'bootstrap-sass', '~> 3.3.6'
 # Fix turbolink issue with jquery
 gem 'jquery-turbolinks'
 gem 'bootswatch-rails'
+gem 'cancancan'
+gem 'quiet_assets'
+gem 'delayed_job_active_record'
+gem 'delayed_job_web'
+
 
 
 # Use Unicorn as the app server
