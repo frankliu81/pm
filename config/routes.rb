@@ -13,14 +13,21 @@ Rails.application.routes.draw do
     resources :discussions
   end
 
-  resources :discussions do
+  #resources :discussions do
   #resources :discussions, only: [] do
+  namespace :discussions do
     resources :comments
   end
 
   post "/tasks/status_change/:id" => "tasks#status_change", as: :status_change_task
 
   get "/about" => "home#about"
+
+  resources :users, only: [:new, :create, :edit, :update, :destroy]
+
+  resources :sessions, only: [:new, :create] do
+    delete :destroy, on: :collection
+  end
 
   root "home#index"
 

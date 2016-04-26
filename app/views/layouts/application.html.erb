@@ -39,6 +39,20 @@
   <%= link_to "New Project", new_project_path %>
   |
   <%= link_to "All Projects", projects_path %>
+
+  |===|
+<% if user_signed_in? %>
+  <%= "Hello #{current_user.first_name}" %>
+  |
+  <%= link_to "Edit Profile", edit_user_path(current_user) %>
+  |
+  <%= link_to "Log out", sessions_path, method: :delete %>
+<% else %>
+  <%= link_to "Sign In", new_session_path %>
+  |
+  <%= link_to "Sign up", new_user_path %>
+<% end %>
+
   <hr>
   <%= flash[:notice] || flash[:alert] %>
   <hr>
